@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Seis Sombreros para Pensar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+            color: #212529;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 100%;
+            max-width: 500px;
+            max-height: 400px;
+        }
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #6C757D;
+            margin: 0 0.5rem;
+        }
+        .hat-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .stat-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#118AB2] mb-2">Seis Sombreros para Pensar</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Una metodología revolucionaria de Edward de Bono para transformar la confusión del debate en la claridad del pensamiento paralelo.</p>
+        </header>
+
+        <section id="problem" class="mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">El Problema del Pensamiento Convencional</h2>
+                <p class="text-gray-600 mt-2">El debate tradicional es ineficiente. El ego y la confusión dominan, llevando a reuniones largas y resultados pobres.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-5xl mb-4">🤯</div>
+                    <h3 class="text-xl font-bold mb-2">Confusión</h3>
+                    <p class="text-gray-600">Intentamos analizar datos, gestionar emociones y ser creativos, todo a la vez. El resultado es un caos mental.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-5xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-bold mb-2">La Tiranía del Ego</h3>
+                    <p class="text-gray-600">La discusión se convierte en una batalla por "tener la razón", en lugar de una exploración objetiva del tema.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-5xl mb-4">⚔️</div>
+                    <h3 class="text-xl font-bold mb-2">Pensamiento Adversarial</h3>
+                    <p class="text-gray-600">El modelo de ataque y defensa es útil en un juicio, pero destructivo para el pensamiento constructivo y la innovación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="hats" class="mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">La Solución: El Pensamiento Paralelo</h2>
+                <p class="text-gray-600 mt-2 max-w-3xl mx-auto">El método dirige a todos los participantes a pensar en la misma dirección, al mismo tiempo. Cada "sombrero" representa un modo de pensamiento distinto, permitiendo explorar un tema de forma completa y colaborativa.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="hat-card p-6 rounded-lg shadow-lg border-t-8" style="border-color: #F8F9FA; background-color: white;">
+                    <h3 class="text-2xl font-bold flex items-center"><span class="text-4xl mr-3">🖥️</span> Sombrero Blanco</h3>
+                    <p class="mt-2 text-gray-700 font-semibold">Hechos, Cifras y Datos Objetivos</p>
+                    <p class="mt-2 text-gray-600">Se enfoca en la información disponible y necesaria. Es neutral y disciplinado, como una computadora.</p>
+                </div>
+                <div class="hat-card p-6 rounded-lg shadow-lg border-t-8" style="border-color: #FF6B6B; background-color: #FFF5F5;">
+                    <h3 class="text-2xl font-bold flex items-center"><span class="text-4xl mr-3">❤️</span> Sombrero Rojo</h3>
+                    <p class="mt-2 text-gray-700 font-semibold">Emociones, Intuición y Sentimientos</p>
+                    <p class="mt-2 text-gray-600">Permite expresar emociones y presentimientos sin necesidad de justificación. Legitimiza la parte emocional del pensamiento.</p>
+                </div>
+                <div class="hat-card p-6 rounded-lg shadow-lg border-t-8" style="border-color: #495057; background-color: #F8F9FA;">
+                    <h3 class="text-2xl font-bold flex items-center"><span class="text-4xl mr-3">⚖️</span> Sombrero Negro</h3>
+                    <p class="mt-2 text-gray-700 font-semibold">Cautela, Riesgos y Juicio Crítico</p>
+                    <p class="mt-2 text-gray-600">Señala debilidades, peligros y por qué algo podría no funcionar. Es el sombrero de la supervivencia, basado en la lógica negativa.</p>
+                </div>
+                <div class="hat-card p-6 rounded-lg shadow-lg border-t-8" style="border-color: #FFD166; background-color: #FFFBEB;">
+                    <h3 class="text-2xl font-bold flex items-center"><span class="text-4xl mr-3">☀️</span> Sombrero Amarillo</h3>
+                    <p class="mt-2 text-gray-700 font-semibold">Beneficios, Valor y Optimismo</p>
+                    <p class="mt-2 text-gray-600">Busca deliberadamente los aspectos positivos y el valor. Es el motor del pensamiento constructivo y se enfoca en "hacer que las cosas ocurran".</p>
+                </div>
+                <div class="hat-card p-6 rounded-lg shadow-lg border-t-8" style="border-color: #06D6A0; background-color: #F0FFF4;">
+                    <h3 class="text-2xl font-bold flex items-center"><span class="text-4xl mr-3">💡</span> Sombrero Verde</h3>
+                    <p class="mt-2 text-gray-700 font-semibold">Creatividad, Alternativas e Ideas Nuevas</p>
+                    <p class="mt-2 text-gray-600">Fomenta el pensamiento lateral y la provocación para generar nuevas posibilidades y romper con los patrones establecidos.</p>
+                </div>
+                <div class="hat-card p-6 rounded-lg shadow-lg border-t-8" style="border-color: #118AB2; background-color: #EBF8FF;">
+                    <h3 class="text-2xl font-bold flex items-center"><span class="text-4xl mr-3">⚙️</span> Sombrero Azul</h3>
+                    <p class="mt-2 text-gray-700 font-semibold">Control del Proceso y Metacognición</p>
+                    <p class="mt-2 text-gray-600">Organiza el pensamiento. Define el foco, diseña la secuencia de sombreros y sintetiza los resultados. Es el director de la orquesta.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="sequences" class="mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">Secuencias Estructuradas para el Éxito</h2>
+                <p class="text-gray-600 mt-2 max-w-3xl mx-auto">El Sombrero Azul diseña la "coreografía" del pensamiento. La secuencia de sombreros se adapta al objetivo específico de la reunión para maximizar la eficiencia.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-4 text-center">Flujo para Resolución de Problemas</h3>
+                <div class="flex flex-wrap items-center justify-center">
+                    <div class="text-center p-3 m-1 border-2 border-[#118AB2] rounded-lg bg-[#EBF8FF]">Azul<br><small>Definir</small></div>
+                    <div class="flow-arrow">→</div>
+                    <div class="text-center p-3 m-1 border-2 border-gray-300 rounded-lg bg-gray-50">Blanco<br><small>Datos</small></div>
+                    <div class="flow-arrow">→</div>
+                    <div class="text-center p-3 m-1 border-2 border-[#06D6A0] rounded-lg bg-[#F0FFF4]">Verde<br><small>Soluciones</small></div>
+                    <div class="flow-arrow">→</div>
+                    <div class="text-center p-3 m-1 border-2 border-[#FFD166] rounded-lg bg-[#FFFBEB]">Amarillo<br><small>Beneficios</small></div>
+                    <div class="flow-arrow">→</div>
+                    <div class="text-center p-3 m-1 border-2 border-[#495057] rounded-lg bg-gray-200">Negro<br><small>Riesgos</small></div>
+                    <div class="flow-arrow">→</div>
+                    <div class="text-center p-3 m-1 border-2 border-[#FF6B6B] rounded-lg bg-[#FFF5F5]">Rojo<br><small>Intuición</small></div>
+                     <div class="flow-arrow">→</div>
+                    <div class="text-center p-3 m-1 border-2 border-[#118AB2] rounded-lg bg-[#EBF8FF]">Azul<br><small>Decidir</small></div>
+                </div>
+                <p class="text-center text-gray-600 mt-4">Esta secuencia asegura que las soluciones se basen en datos, se explore su valor y se evalúen los riesgos antes de tomar una decisión final.</p>
+            </div>
+        </section>
+
+        <section id="impact" class="mb-16">
+             <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">Resultados de la implementación</h2>
+                <p class="text-gray-600 mt-2 max-w-3xl mx-auto">La adopción del método genera resultados tangibles y probados en corporaciones de todo el mundo.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="stat-card lg:col-span-1">
+                    <p class="text-6xl font-black text-[#118AB2]">93%</p>
+                    <p class="text-xl font-bold mt-2">Reducción de Tiempo</p>
+                    <p class="text-gray-600 mt-2">En <span class="font-bold">ABB</span>, el tiempo de planificación de proyectos se redujo de 30 días a solo 2, eliminando el debate adversarial.</p>
+                </div>
+                 <div class="stat-card lg:col-span-1">
+                    <p class="text-6xl font-black text-[#06D6A0]">12 min</p>
+                    <p class="text-xl font-bold mt-2">Resolución de Problemas</p>
+                    <p class="text-gray-600 mt-2">En <span class="font-bold">Statoil</span>, un problema que costaba $100,000 diarios se resolvió en 12 minutos usando una sesión estructurada.</p>
+                </div>
+                <div class="stat-card md:col-span-2 lg:col-span-1">
+                    <p class="text-6xl font-black text-[#FFD166]">2,648%</p>
+                    <p class="text-xl font-bold mt-2">Retorno de la Inversión</p>
+                    <p class="text-gray-600 mt-2">Un estudio en <span class="font-bold">MDS Sciex</span> demostró un ROI de más del 2600% en el desarrollo de nuevos productos.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg md:col-span-2 lg:col-span-3">
+                    <h3 class="text-xl font-bold mb-4 text-center">Comparativa: Pensador Equilibrado vs. Pensador Crítico</h3>
+                    <p class="text-center text-gray-600 mb-4">El método fomenta un uso equilibrado de todos los modos de pensamiento, evitando el sesgo hacia la crítica (Sombrero Negro) que prevalece en muchas culturas organizacionales.</p>
+                    <div class="chart-container mx-auto">
+                        <canvas id="balanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="integration" class="mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">Un Sistema Operativo para la Estrategia</h2>
+                <p class="text-gray-600 mt-2 max-w-3xl mx-auto">Los Seis Sombreros no compiten con otras herramientas como el análisis FODA; las potencian, proporcionando el "cómo" pensar de manera estructurada.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                 <h3 class="text-xl font-bold mb-6 text-center">Potenciando el Análisis FODA (SWOT)</h3>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <div class="flex items-start">
+                         <div class="p-4 rounded-full mr-4 bg-[#FFFBEB] text-[#FFD166]">☀️</div>
+                         <div>
+                             <h4 class="font-bold">Oportunidades (Sombrero Amarillo)</h4>
+                             <p class="text-gray-600">Usa el pensamiento lógico-positivo para explorar y desarrollar el potencial de las oportunidades externas.</p>
+                         </div>
+                     </div>
+                      <div class="flex items-start">
+                         <div class="p-4 rounded-full mr-4 bg-gray-200 text-[#495057]">⚖️</div>
+                         <div>
+                             <h4 class="font-bold">Amenazas (Sombrero Negro)</h4>
+                             <p class="text-gray-600">Aplica el juicio crítico para identificar y evaluar los riesgos y las amenazas del entorno.</p>
+                         </div>
+                     </div>
+                      <div class="flex items-start">
+                         <div class="p-4 rounded-full mr-4 bg-gray-50 text-gray-800">🖥️</div>
+                         <div>
+                             <h4 class="font-bold">Fortalezas y Debilidades (Sombrero Blanco)</h4>
+                             <p class="text-gray-600">Lista los hechos y datos objetivos sobre las capacidades y limitaciones internas de la organización.</p>
+                         </div>
+                     </div>
+                     <div class="flex items-start">
+                         <div class="p-4 rounded-full mr-4 bg-[#F0FFF4] text-[#06D6A0]">💡</div>
+                         <div>
+                             <h4 class="font-bold">Estrategias (Sombrero Verde)</h4>
+                             <p class="text-gray-600">Genera ideas creativas para usar las fortalezas para capturar oportunidades o mitigar amenazas.</p>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-300">
+            <p class="text-gray-500">Infografía creada con base en "Seis Sombreros para Pensar" de Edward de Bono.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function wrapLabel(str, max_width) {
+            if (str.length <= max_width) return str;
+            const words = str.split(' ');
+            let lines = [];
+            let current_line = '';
+            for (const word of words) {
+                if ((current_line + ' ' + word).length > max_width) {
+                    lines.push(current_line);
+                    current_line = word;
+                } else {
+                    current_line += (current_line ? ' ' : '') + word;
+                }
+            }
+            if (current_line) lines.push(current_line);
+            return lines;
+        }
+
+        const tooltipTitleCallback = function(tooltipItems) {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        const ctxBalance = document.getElementById('balanceChart').getContext('2d');
+        const balanceChart = new Chart(ctxBalance, {
+            type: 'radar',
+            data: {
+                labels: ['Datos (Blanco)', 'Emoción (Rojo)', 'Riesgos (Negro)', 'Beneficios (Amarillo)', 'Creatividad (Verde)'],
+                datasets: [{
+                    label: 'Pensador Equilibrado',
+                    data: [8, 7, 8, 9, 8],
+                    backgroundColor: 'rgba(17, 138, 178, 0.2)',
+                    borderColor: '#118AB2',
+                    pointBackgroundColor: '#118AB2',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#118AB2'
+                }, {
+                    label: 'Pensador Crítico (Sesgado)',
+                    data: [5, 3, 10, 4, 2],
+                    backgroundColor: 'rgba(73, 80, 87, 0.2)',
+                    borderColor: '#495057',
+                    pointBackgroundColor: '#495057',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#495057'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: '#dee2e6'
+                        },
+                        grid: {
+                            color: '#ced4da'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            color: '#495057'
+                        },
+                        ticks: {
+                            backdropColor: 'rgba(255, 255, 255, 0.75)',
+                            color: '#868e96'
+                        },
+                        min: 0,
+                        max: 10
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
