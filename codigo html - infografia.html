@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Método Lean Startup por Oscar Galvez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F4F8;
+            color: #102A43;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-arrow {
+            position: relative;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flowchart-arrow::after {
+            content: '▼';
+            font-size: 2rem;
+            color: #059669;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-7px);
+            }
+        }
+        .kpi-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .kpi-value {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #047857;
+        }
+        .kpi-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #334E68;
+            margin-top: 0.5rem;
+        }
+        .pivot-card {
+            background: white;
+            border-left: 5px solid #059669;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+        }
+        .pivot-card:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-gray-800 mb-2">El Método Lean Startup</h1>
+            <p class="text-lg md:text-xl text-gray-600">Una Guía Visual para la Innovación Continua y la Creación de Negocios de Éxito</p>
+        </header>
+
+        <section id="principles" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Los 5 Principios Fundamentales</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div class="kpi-card">
+                    <div class="kpi-value">🌍</div>
+                    <div class="kpi-label">Emprendedores en Todas Partes</div>
+                    <p class="text-sm text-gray-500 mt-2">La innovación no se limita a los garajes; ocurre en empresas de todos los tamaños.</p>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">📈</div>
+                    <div class="kpi-label">El Emprendimiento es Management</div>
+                    <p class="text-sm text-gray-500 mt-2">Se necesita una nueva disciplina de gestión para navegar la incertidumbre.</p>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">🧪</div>
+                    <div class="kpi-label">Aprendizaje Validado</div>
+                    <p class="text-sm text-gray-500 mt-2">El progreso real se mide por el aprendizaje empírico, no por la producción.</p>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">🔄</div>
+                    <div class="kpi-label">Crear-Medir-Aprender</div>
+                    <p class="text-sm text-gray-500 mt-2">El ciclo de retroalimentación fundamental para transformar ideas en valor.</p>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">📊</div>
+                    <div class="kpi-label">Contabilidad de la Innovación</div>
+                    <p class="text-sm text-gray-500 mt-2">Un nuevo enfoque para medir el progreso y tomar decisiones basadas en datos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="bml-cycle" class="mb-16 bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">El Motor de la Innovación: Crear-Medir-Aprender</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Este ciclo es el corazón de la metodología. Su objetivo es minimizar el tiempo total del circuito para acelerar el aprendizaje. Aunque se ejecuta en orden Crear-Medir-Aprender, la planificación se hace a la inversa: se empieza por lo que se necesita aprender.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+                <div class="text-center p-6 bg-blue-100 rounded-full w-48 h-48 flex flex-col justify-center items-center shadow-md">
+                    <div class="text-5xl mb-2">💡</div>
+                    <h3 class="text-xl font-bold text-blue-800">CREAR</h3>
+                    <p class="text-sm text-blue-700">Construir un PMV para probar hipótesis.</p>
+                </div>
+                <div class="flowchart-arrow transform md:rotate-[-90deg]"></div>
+                <div class="text-center p-6 bg-green-100 rounded-full w-48 h-48 flex flex-col justify-center items-center shadow-md">
+                    <div class="text-5xl mb-2">📏</div>
+                    <h3 class="text-xl font-bold text-green-800">MEDIR</h3>
+                    <p class="text-sm text-green-700">Recopilar datos con métricas accionables.</p>
+                </div>
+                <div class="flowchart-arrow transform md:rotate-[-90deg]"></div>
+                <div class="text-center p-6 bg-purple-100 rounded-full w-48 h-48 flex flex-col justify-center items-center shadow-md">
+                    <div class="text-5xl mb-2">🧠</div>
+                    <h3 class="text-xl font-bold text-purple-800">APRENDER</h3>
+                    <p class="text-sm text-purple-700">Decidir si pivotar o perseverar.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="mvp" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">El Producto Mínimo Viable (PMV)</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">El PMV no es un producto a medias; es la forma más rápida de iniciar el ciclo de aprendizaje con el mínimo esfuerzo. Su objetivo es probar las suposiciones más arriesgadas del negocio.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Comparación de Arquetipos de PMV</h3>
+                    <p class="text-gray-600 mb-4">La elección del PMV correcto depende de la hipótesis que se quiera probar. No todos los PMV requieren código; algunos, como el "Mago de Oz", simulan una experiencia completa con trabajo manual entre bastidores.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="mvpChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-center">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Calidad del PMV vs. Aprendizaje</h3>
+                    <p class="text-gray-600 mb-4">El dilema no es "calidad vs. velocidad", sino "¿qué calidad necesita el cliente?". Un PMV debe ser de alta calidad en la experiencia de aprendizaje que proporciona, no necesariamente en el número de características.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="qualityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="metrics" class="mb-16 bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Contabilidad de la Innovación: Medir lo que Importa</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Para evitar el "teatro de la innovación", es crucial distinguir entre métricas que nos hacen sentir bien (vanidosas) y métricas que nos ayudan a tomar decisiones (accionables).</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-red-600">Métricas Vanidosas</h3>
+                    <ul class="list-none space-y-2">
+                        <li class="flex items-start"><span class="text-red-500 mr-2 text-2xl">✗</span><div><strong class="text-gray-700">Total de Registros:</strong> Puede crecer incluso si nadie usa el producto.</div></li>
+                        <li class="flex items-start"><span class="text-red-500 mr-2 text-2xl">✗</span><div><strong class="text-gray-700">Visitas a la Página:</strong> No dice nada sobre el compromiso o la retención del usuario.</div></li>
+                         <li class="flex items-start"><span class="text-red-500 mr-2 text-2xl">✗</span><div><strong class="text-gray-700">Descargas Totales:</strong> Una métrica de un solo evento que oculta el churn.</div></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-green-600">Métricas Accionables</h3>
+                    <ul class="list-none space-y-2">
+                        <li class="flex items-start"><span class="text-green-500 mr-2 text-2xl">✓</span><div><strong class="text-gray-700">Tasa de Retención por Cohorte:</strong> Muestra si el producto es lo suficientemente valioso como para que los usuarios regresen.</div></li>
+                         <li class="flex items-start"><span class="text-green-500 mr-2 text-2xl">✓</span><div><strong class="text-gray-700">LTV vs. CPA:</strong> Compara el valor de vida de un cliente con el coste de adquirirlo, clave para un crecimiento sostenible.</div></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2 text-2xl">✓</span><div><strong class="text-gray-700">Tasa de Activación:</strong> El porcentaje de usuarios que completan una acción clave, indicando que han encontrado valor.</div></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2 mt-8">
+                     <p class="text-center text-gray-600 max-w-3xl mx-auto mb-4">El análisis de cohortes es la herramienta más poderosa para obtener métricas accionables. En lugar de mirar los totales, se observa el comportamiento de grupos de usuarios a lo largo del tiempo.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="cohortChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pivot" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Pivotar o Perseverar: La Decisión Estratégica</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Un pivote no es un fracaso. Es una corrección de rumbo estructurada, basada en el aprendizaje validado. Es una de las decisiones más difíciles y cruciales en la vida de una startup.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="pivot-card">
+                    <h4 class="font-bold text-lg text-gray-800">Pivote de Acercamiento</h4>
+                    <p class="text-sm text-gray-600">Una característica se convierte en el producto completo.</p>
+                </div>
+                <div class="pivot-card">
+                    <h4 class="font-bold text-lg text-gray-800">Pivote de Alejamiento</h4>
+                    <p class="text-sm text-gray-600">El producto se convierte en una característica de algo mayor.</p>
+                </div>
+                <div class="pivot-card">
+                    <h4 class="font-bold text-lg text-gray-800">Pivote de Segmento de Consumidor</h4>
+                    <p class="text-sm text-gray-600">Se cambia el público objetivo.</p>
+                </div>
+                <div class="pivot-card">
+                    <h4 class="font-bold text-lg text-gray-800">Pivote de Plataforma</h4>
+                    <p class="text-sm text-gray-600">Cambio de una app a una plataforma, o viceversa.</p>
+                </div>
+                <div class="pivot-card">
+                    <h4 class="font-bold text-lg text-gray-800">Pivote de Motor de Crecimiento</h4>
+                    <p class="text-sm text-gray-600">Cambio de estrategia (viral, pegajoso o remunerado).</p>
+                </div>
+                <div class="pivot-card">
+                    <h4 class="font-bold text-lg text-gray-800">Pivote de Captura de Valor</h4>
+                    <p class="text-sm text-gray-600">Se cambia el modelo de ingresos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === SECCIÓN DE PERFIL PROFESIONAL (AL FINAL) === -->
+        <section id="profile" class="mt-16 mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8 md:p-10 mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <!-- Foto de Perfil -->
+                    <div class="flex-shrink-0">
+                        <img class="h-40 w-40 rounded-full object-cover shadow-md border-4 border-emerald-500" src="https://placehold.co/200x200/E0E7FF/102A43?text=OMG" alt="Foto de Oscar Mauricio Galvez Maya">
+                    </div>
+                    <!-- Información del Perfil -->
+                    <div class="text-center md:text-left">
+                        <h2 class="text-3xl font-bold text-gray-800">Oscar Mauricio Galvez Maya</h2>
+                        <p class="text-md font-semibold text-emerald-700 mt-1">Founder | Business Intelligence | Data Analyst | SQL | Python | Power BI | Project Manager | ISO 9001</p>
+                        <p class="text-gray-600 mt-4 max-w-2xl">
+                           Traduzco procesos de negocio complejos en datos accionables, y convierto insights basados en datos en operaciones más eficientes y rentables.
+                        </p>
+                         <div class="mt-6 flex justify-center md:justify-start items-center space-x-6">
+                            <a href="https://www.linkedin.com/in/oscar-mauricio-galvez-maya-b06b786b" target="_blank" class="flex items-center text-gray-700 hover:text-emerald-600 transition-colors">
+                                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://wa.me/573015250656" target="_blank" class="flex items-center text-gray-700 hover:text-emerald-600 transition-colors">
+                               <svg fill="currentColor" class="w-6 h-6 mr-2" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 4.315 1.919 6.066l-1.225 4.485 4.62-1.212zM12 7.006c-.138 0-.273.024-.401.07B11.11 7.31 10.79 8.1s-.223.537-.312.752c-.09.22-.18.455-.18.66s.09.43.27.595c.18.165.39.35.57.545.18.195.315.33.48.545.165.215.3.405.465.615.165.21.345.39.585.51.24.12.51.18.78.18h.045c.27-.03.51-.135.69-.255.18-.12.315-.27.405-.435.09-.165.135-.345.135-.525s-.045-.36-.09-.51c-.045-.15-.135-.345-.225-.51-.09-.165-.18-.3-.225-.36s-.135-.12-.225-.18c-.09-.06-.18-.09-.225-.105-.045-.015-.135-.015-.225-.015s-.18.015-.27.045c-.09.03-.18.075-.225.12s-.09.135-.09.225.045.18.09.27.09.18.135.225.09.09.135.135.09.09.135.135c.045.045.09.09.135.135.045.045.09.09.135.135s.09.09.135.135c.27-.24.48-.495.615-.765.135-.27.21-.57.21-.885.001-.435-.12-.855-.345-1.215-.225-.36-.54-.66-.9-.885-.36-.225-.78-.345-1.23-.345h.015z"/></svg>
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- === FIN SECCIÓN DE PERFIL === -->
+
+        <footer class="text-center mt-16 pt-8 border-t border-gray-300">
+            <p class="text-gray-600">Infografía adaptada y presentada por <strong>Oscar Mauricio Galvez Maya</strong>.</p>
+            <p class="text-sm text-gray-500 mt-2">Basada en el método Lean Startup de Eric Ries.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) return label;
+            
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const mvpData = {
+            labels: ['Vídeo (Ej: Dropbox)', 'Conserje (Ej: Food on the Table)', wrapLabel('Mago de Oz (Ej: Zappos)')],
+            datasets: [{
+                label: 'Complejidad Técnica',
+                data: [2, 1, 3],
+                backgroundColor: 'rgba(52, 152, 219, 0.6)',
+                borderColor: 'rgba(52, 152, 219, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Profundidad de Aprendizaje Cualitativo',
+                data: [4, 9, 7],
+                backgroundColor: 'rgba(26, 188, 156, 0.6)',
+                borderColor: 'rgba(26, 188, 156, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        new Chart(document.getElementById('mvpChart'), {
+            type: 'bar',
+            data: mvpData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: { display: true, text: 'Esfuerzo vs. Aprendizaje por Tipo de PMV' },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                },
+                scales: { y: { beginAtZero: true, max: 10 } }
+            }
+        });
+        
+        const qualityData = {
+            labels: ['PMV de Baja Calidad', 'PMV de Aprendizaje', 'Producto Completo'],
+            datasets: [{
+                label: 'Esfuerzo de Desarrollo',
+                data: [20, 35, 100],
+                backgroundColor: 'rgba(231, 76, 60, 0.6)',
+                stack: 'Stack 0',
+            }, {
+                label: 'Riesgo de Falso Negativo',
+                data: [80, 25, 5],
+                backgroundColor: 'rgba(241, 196, 15, 0.6)',
+                stack: 'Stack 1',
+            }]
+        };
+
+        new Chart(document.getElementById('qualityChart'), {
+            type: 'bar',
+            data: qualityData,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: { display: true, text: 'Impacto de la Calidad del PMV en el Riesgo' },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                },
+                scales: { x: { stacked: true }, y: { stacked: true } }
+            }
+        });
+
+        const cohortData = {
+            labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6'],
+            datasets: [{
+                label: 'Cohorte de Enero (Sin mejoras)',
+                data: [100, 40, 25, 18, 15, 14],
+                borderColor: 'rgba(231, 76, 60, 1)',
+                backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                fill: true,
+                tension: 0.4
+            }, {
+                label: 'Cohorte de Febrero (Con mejoras)',
+                data: [100, 65, 55, 50, 48, 47],
+                borderColor: 'rgba(46, 204, 113, 1)',
+                backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                fill: true,
+                tension: 0.4
+            }]
+        };
+
+        new Chart(document.getElementById('cohortChart'), {
+            type: 'line',
+            data: cohortData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: { display: true, text: 'Análisis de Cohortes: Retención de Usuarios (%)' },
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                },
+                scales: { y: { beginAtZero: true, max: 100, ticks: { callback: (value) => value + '%' } } }
+            }
+        });
+    </script>
+</body>
+</html>
